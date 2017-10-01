@@ -27,4 +27,3 @@ void World::Render(sf::RenderWindow window)
 {
 }
 
-
