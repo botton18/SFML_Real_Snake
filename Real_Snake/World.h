@@ -2,6 +2,9 @@
 #include <iostream>
 #include <vector>
 #include "Snake.h"
+#ifndef WORLD_H
+#define WORLD_H
+
 using namespace std;
 class World
 {
@@ -22,6 +25,7 @@ public:
 
 	void update(Snake& player);
 
-	void Render(sf::RenderWindow window);
+	void Render(sf::RenderWindow & window);
 
 };
+#endif

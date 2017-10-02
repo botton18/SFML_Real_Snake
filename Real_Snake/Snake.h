@@ -1,7 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
-
+#ifndef SNAKE_H
+#define SNAKE_H
 using namespace std;
 struct SnakeSegment
 {
@@ -48,5 +49,7 @@ public:
 	void Move();
 	void Tick();
 	void Cut(int segment);
-	void Render(sf::RenderWindow window);
+	void Render(sf::RenderWindow & window);
 };
+
+#endif

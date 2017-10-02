@@ -1,5 +1,5 @@
 #include "Snake.h"
-
+#include <iostream>
 Snake::Snake(int blocksize)
 {
 	size = blocksize;
@@ -157,6 +157,8 @@ void Snake::Reset()
 
 void Snake::Move()
 {
+	std::cout << "Move() called " << std::endl;
+	
 	for (int i = Body.size() - 1; i > 0; --i)
 	{
 		Body.at(i).position = Body.at(i - 1).position;
@@ -208,7 +210,7 @@ void Snake::Cut(int segment)
 
 }
 
-void Snake::Render(sf::RenderWindow window)
+void Snake::Render(sf::RenderWindow & window)
 {
 	if (Body.empty())
 	{

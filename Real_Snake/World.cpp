@@ -64,7 +64,7 @@ void World::update(Snake & player)
 	}
 }
 
-void World::Render(sf::RenderWindow window)
+void World::Render(sf::RenderWindow & window)
 {
 	for (int i = 0; i < 4; ++i)
 	{
