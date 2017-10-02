@@ -198,6 +198,7 @@ void Snake::Cut(int segment)
 	for (int i = 0; i < segment; ++i)
 	{
 		Body.pop_back();
+		std::cout << "Popped back " << i << std::endl;
 	}
 	--lives;
 	if (lives == 0)

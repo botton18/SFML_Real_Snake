@@ -1,9 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
+#include <sstream>
 #include "Snake.h"
 #include "World.h"
-#include <Windows.h>
+
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Snake!");
@@ -13,8 +14,17 @@ int main()
 	float elapsetime = 0;
 	sf::Clock clock;
 	float timer = 0;
+	int thescore = 0;
 	sf::Font font;
-	font.loadFromFile("arial.tff");
+	sf::Font arial;
+
+	arial.loadFromFile("arial.ttf");
+	font.loadFromFile("Halo.ttf");
+	sf::Text text("Score", arial, 20);
+	sf::Text score("temp", arial, 20);
+	score.setPosition(30, 40);
+	text.setPosition(20, 10);
+	int lives;
 	while (window.isOpen())
 	{
 		float time = clock.getElapsedTime().asSeconds();
@@ -55,11 +65,20 @@ int main()
 		{
 			snake.setDirection(Direction::Right);
 		}
-		
+		thescore = snake.GetScore();
+		std::stringstream ss;
+		std::stringstream sd;
+		ss << thescore;
+		score.setString(ss.str().c_str());
+		lives = snake.GetLives();
+		sd << lives;
+		text.setString(sd.str().c_str());
 
 		window.clear();
 		snake.Render(window);
 		world.Render(window);
+		window.draw(text);
+		window.draw(score);
 		window.display();
 	}
 
