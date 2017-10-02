@@ -3,7 +3,7 @@
 #include <vector>
 #include "Snake.h"
 #include "World.h"
-
+#include <Windows.h>
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Snake!");
@@ -13,6 +13,8 @@ int main()
 	float elapsetime = 0;
 	sf::Clock clock;
 	float timer = 0;
+	sf::Font font;
+	font.loadFromFile("arial.tff");
 	while (window.isOpen())
 	{
 		float time = clock.getElapsedTime().asSeconds();
@@ -29,7 +31,6 @@ int main()
 		if (timer > delay)
 		{
 			timer = 0;
-			std::cout << "Loop";
 			snake.Tick();
 			world.update(snake);
 			if (snake.HasLost())

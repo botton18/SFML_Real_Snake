@@ -147,7 +147,7 @@ void Snake::Reset()
 	Body.push_back(SnakeSegment(5, 7));
 	Body.push_back(SnakeSegment(5, 6));
 	Body.push_back(SnakeSegment(5, 5));
-
+	 
 	setDirection(Direction::None);
 	speed = 15;
 	lives = 3;
@@ -157,8 +157,6 @@ void Snake::Reset()
 
 void Snake::Move()
 {
-	std::cout << "Move() called " << std::endl;
-	
 	for (int i = Body.size() - 1; i > 0; --i)
 	{
 		Body.at(i).position = Body.at(i - 1).position;
